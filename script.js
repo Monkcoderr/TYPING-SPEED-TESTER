@@ -46,7 +46,7 @@ startBtn.addEventListener("click", () => {
   timerDisplay.innerText = "0";
   wpmDisplay.innerText = "0";
   accuracyDisplay.innerText = "0";
-tl = 10;
+tl = 15;
 c.innerText = tl;
 clearInterval(tlid);
   clearInterval(intervalId);
