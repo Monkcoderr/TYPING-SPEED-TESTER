@@ -6,31 +6,6 @@ themeBtn.addEventListener("click", () => {
 });
 
 
-// const quoteText = document.getElementById("quote");
-// const inputBox = document.getElementById("inputBox");
-// const timerDisplay = document.getElementById("timer");
-// const wpmDisplay = document.getElementById("wpm");
-// const accuracyDisplay = document.getElementById("accuracy");
-// const startBtn = document.getElementById("startBtn");
-
-// let quote = "Practice makes perfect, so keep typing until it becomes second nature.";
-
-// let startTime, intervalId;
-
-// startBtn.addEventListener('click',()=>{
-//     quoteText.innerText = quote;
-//     inputBox.value = "";
-//     inputBox.disabled = false;
-//     inputBox.focus();
-//      timerDisplay.innerText = "0";
-//   wpmDisplay.innerText = "0";
-//   accuracyDisplay.innerText = "0";
-
-//   clearInterval(intervalId);
-//   startTime = new Date().getTime();
-//   intervalId = setInterval(updateTimer, 1000);
-
-// })
 const quoteText = document.getElementById("quote");
 const inputBox = document.getElementById("inputBox");
 const timerDisplay = document.getElementById("timer");
@@ -95,3 +70,9 @@ function calculateStats() {
     : 0;
   accuracyDisplay.innerText = accuracy;
 }
+ inputBox.addEventListener('paste',(e)=>{
+alert('don,t try to paste')
+  e.preventDefault();
+
+
+ })
