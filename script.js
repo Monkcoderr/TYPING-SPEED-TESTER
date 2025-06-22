@@ -12,9 +12,14 @@ const timerDisplay = document.getElementById("timer");
 const wpmDisplay = document.getElementById("wpm");
 const accuracyDisplay = document.getElementById("accuracy");
 const startBtn = document.getElementById("startBtn");
+const c = document.getElementById('c');
 
 let quote = "Practice makes perfect, so keep typing until it becomes second nature.";
-let startTime, intervalId;
+let startTime, intervalId,tlid;
+let tl = 10;
+
+
+
 
 // Start Test
 startBtn.addEventListener("click", () => {
@@ -26,14 +31,32 @@ startBtn.addEventListener("click", () => {
   timerDisplay.innerText = "0";
   wpmDisplay.innerText = "0";
   accuracyDisplay.innerText = "0";
-
+tl = 10;
+c.innerText = tl;
+clearInterval(tlid);
   clearInterval(intervalId);
+tlid = setInterval(countdown,1000)
+
   startTime = new Date().getTime();
   intervalId = setInterval(updateTimer, 1000);
 });
 
+function countdown(){
+  tl = tl-1;
+  c.innerText = tl;
+
+  if (tl ===0){
+    clearInterval(tlid);
+    inputBox.disabled= true;
+    clearInterval(intervalId)
+
+
+  }
+}
+
 // Update timer every second
 function updateTimer() {
+  c.innerText = tl;
   const currentTime = new Date().getTime();
   const seconds = Math.floor((currentTime - startTime) / 1000);
   timerDisplay.innerText = seconds;
