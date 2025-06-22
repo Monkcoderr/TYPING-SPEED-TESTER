@@ -1,9 +1,24 @@
 
 const themeBtn = document.getElementById("toggle-theme");
 
+// 🔁 Load theme from localStorage on page load
+window.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+  }
+});
+
+// 🌗 Toggle dark mode + save to localStorage
 themeBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
+
+  // save current theme
+  const isDark = document.body.classList.contains("dark-mode");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
 });
+
 
 
 const quoteText = document.getElementById("quote");
@@ -16,7 +31,7 @@ const c = document.getElementById('c');
 
 let quote = "Practice makes perfect, so keep typing until it becomes second nature.";
 let startTime, intervalId,tlid;
-let tl = 10;
+let tl = 15;
 
 
 
@@ -56,7 +71,7 @@ function countdown(){
 
 // Update timer every second
 function updateTimer() {
-  c.innerText = tl;
+  
   const currentTime = new Date().getTime();
   const seconds = Math.floor((currentTime - startTime) / 1000);
   timerDisplay.innerText = seconds;
